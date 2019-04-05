@@ -1,0 +1,17 @@
+Get-ChildItem "$env:APPDATA\Microsoft\Windows\Recent" | Remove-Item -Confirm:$False -Recurse
+$url = get-itemproperty "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\TypedPaths"
+$items = $url.psbase.properties | where {$_.Name -like "url*"} | Remove-Itemproperty -Path $url.PSPath
+$url = get-itemproperty "HKCU:\Software\Microsoft\Internet Explorer\TypedURLs"
+$items = $url2.psbase.properties | where {$_.Name -like "url*"} | Remove-Itemproperty -Path $url2.PSPath
+$path = "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\RunMRU" 
+$arr = (Get-Item -Path $path).Property 
+foreach($item in $arr) 
+{if($item -ne "MRUList") 
+   {Remove-ItemProperty -Path $path -Name $item -ErrorAction SilentlyContinue}} 
+
+wevtutil el | Foreach-Object {Write-Host "Clearing $_"; wevtutil cl "$_"}
+
+Stop-Computer
+
+Get-ChildItem C:\Scripts\ -Recurse | Unblock-File
+Get-ChildItem C:\LabFiles\ -Recurse | Unblock-File
