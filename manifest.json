@@ -1,0 +1,39 @@
+{
+  "$schema": "https://developer.microsoft.com/en-us/json-schemas/teams/v1.3/MicrosoftTeams.schema.json",
+  "manifestVersion": "1.3",
+  "id": "98665bdc-b709-4e4e-adae-d26af85bbd0f",
+  "version": "1.0.0",
+  "packageName": "com.Contoso Talent Connector",
+  "developer": {
+    "name": "Developer",
+    "websiteUrl": "https://LODSA337640.sharepoint.com/sites/ContosoHR",
+    "privacyUrl": "https://LODSA337640.sharepoint.com/sites/ContosoHR",
+    "termsOfUseUrl": "https://LODSA337640.sharepoint.com/sites/ContosoHR"
+  },
+  "description": {
+    "full": "This sample recruiting and talent app showcases many of the capabilities that Microsoft Teams supports. App content is hosted for illustrative purposes only.",
+    "short": "Talent app for Contoso managers and recruiters"
+  },
+  "icons": {
+    "outline": "https://outlook.office.com/connectors/Content/Images/IncomingWebhook.jpg",
+    "color": "https://outlook.office.com/connectors/Content/Images/IncomingWebhook.jpg"
+  },
+  "connectors": [
+    {
+      "connectorId": "98665bdc-b709-4e4e-adae-d26af85bbd0f",
+      "scopes": [
+        "team"
+      ],
+      "configurationUrl": "https://68e52636.ngrok.io/StaticViews/ConnectorConfig.html"
+    }
+  ],
+  "name": {
+    "full": "Contoso Talent Connector",
+    "short": "Contoso Talent Connector"
+  },
+  "accentColor": "#FFFFFF",
+  "validDomains": [
+    "68e52636.ngrok.io"
+  ],
+  "needsIdentity": "true"
+}

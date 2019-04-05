@@ -1,0 +1,136 @@
+{
+    "$schema": "https://developer.microsoft.com/en-us/json-schemas/teams/devPreview/MicrosoftTeams.schema.json",
+    "manifestVersion": "devPreview",
+    "version": "0.0.1",
+    "id": "250707d7-ec56-497c-9cd7-777cfc6c5b67",
+    "packageName": "LODSA337640.hr.com.microsoft.com",
+    "developer": {
+        "name": "Norman",
+        "websiteUrl": "https://LODSA337640.sharepoint.com/ContosoHR",
+        "privacyUrl": "https://privacy.microsoft.com/en-us/privacystatement",
+        "termsOfUseUrl": "https://www.microsoft.com/en-us/servicesagreement"
+    },
+    "icons": {
+        "color": "color.png",
+        "outline": "outline.png"
+    },
+    "name": {
+        "short": "Contoso HR Talent App",
+        "full": "Human Resources New Hiring App"
+    },
+    "description": {
+        "short": "Assist HR talent hiring",
+        "full": "This Human Resources app is designed to aid the HR department with their new hire acquisitions."
+    },
+    "accentColor": "#FFFFFF",
+    "configurableTabs": [
+        {
+            "configurationUrl": "https://68e52636.ngrok.io/StaticViews/TeamTabConfig.html?v=1",
+            "canUpdateConfiguration": true,
+            "scopes": [
+                "team",
+                "groupchat"
+            ]
+        }
+    ],
+    "staticTabs": [
+        {
+            "entityId": "250707d7-ec56-497c-9cd7-777cfc6c5b67",
+            "name": "Potential candidates",
+            "contentUrl": "https://68e52636.ngrok.io/StaticViews/OpenPositionsPersonalTab.html?v=1",
+            "websiteUrl": "https://68e52636.ngrok.io/StaticViews/OpenPositionsPersonalTab.html?v=1&web=1",
+            "scopes": [
+                "personal"
+            ]
+        }
+    ],
+    "bots": [
+        {
+            "botId": "a1757c03-96bc-427f-863d-f016aa0cb4b9",
+            "scopes": [
+                "personal",
+                "team"
+            ],
+            "commandLists": [
+                {
+                    "scopes": [
+                        "personal"
+                    ],
+                    "commands": [
+                        {
+                            "title": "help",
+                            "description": "Find out what I can do"
+                        }
+                    ]
+                },
+                {
+                    "scopes": [
+                        "team"
+                    ],
+                    "commands": [
+                        {
+                            "title": "help",
+                            "description": "Find out what I can do"
+                        }
+                    ]
+                }
+            ],
+            "supportsFiles": true,
+            "isNotificationOnly": false
+        }
+    ],
+    "composeExtensions": [
+        {
+            "botId": "a1757c03-96bc-427f-863d-f016aa0cb4b9",
+            "canUpdateConfiguration": true,
+            "commands": [
+                {
+                    "id": "searchPositions",
+                    "title": "Positions",
+                    "description": "Search positions by keyword",
+                    "initialRun": true,
+                    "parameters": [
+                        {
+                            "name": "searchText",
+                            "title": "Keywords",
+                            "description": "Search by keywords"
+                        }
+                    ]
+                },
+                {
+                    "id": "searchCandidates",
+                    "title": "Candidates",
+                    "description": "Search candidates by name",
+                    "initialRun": true,
+                    "parameters": [
+                        {
+                            "name": "searchText",
+                            "title": "Name",
+                            "description": "Search by name"
+                        }
+                    ]
+                },
+                {
+                 "id": "openNewPosition",
+                 "title": "Create position",
+                 "description": "Open a new position",
+                 "type": "action",
+                 "fetchTask": true,
+                 "parameters": [
+                    {
+                     "name": "empty",
+                     "title": "empty"
+                    }
+                  ]
+                }
+            ]
+        }
+    ],
+    "permissions": [
+        "identity",
+        "messageTeamMembers"
+    ],
+    "validDomains": [
+        "68e52636.ngrok.io"
+    ]
+}
